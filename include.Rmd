@@ -8,5 +8,5 @@ The processed dataset is partitioned into training and testing sets. The trainin
 
 Heart Disease Predication can predict the risk factor of having a heart disease based on the input values, including Age, Gender, Blood Pressure, Total Cholesterol and Heart Rate. Additionally, The user can select to display the Normal Range of Blood Pressure, the Normal Range of Total Cholesterol and/or the Normal Range of Heart Rate. 
 
-The source code for this application is availabe on the GitHub. 
+The source code for this application is availabe on the GitHub at https://github.com/helenDoreme/developingdataproduct. 
 

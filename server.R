@@ -1,6 +1,7 @@
 # Load the required library
 library(caret)
 library(randomForest)
+library(e1071)
 
 # Download the data file from heart disease Cleveland database on UCI Machine Learning Repository
 #download.file("https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.cleveland.data", "processed.cleveland.data")
@@ -19,6 +20,8 @@ head(subsetData)
 
 # Assign the Gender as a factor variable
 subsetData$Gender <- factor(subsetData$Gender)
+trim <- function(x) {if (as.numeric(as.character(x)) > 0) x = factor(1) else x = factor(0)}
+subsetData$Prediction <- sapply(subsetData$Prediction, FUN = trim)
 
 # Partition the dataset into training and testing sets
 inData<-createDataPartition(y=subsetData$Prediction, p=0.8, list=FALSE)
@@ -32,7 +35,7 @@ modelrf<- train(Prediction ~ ., method ="rf", data=training, trControl=trainCont
 #predrf<- predict(modelrf, testing)
 
 # Check the accuracy of the prediction 
-#confusionMatrix(round(predrf,0), testing$Prediction)
+#confusionMatrix(predrf, testing$Prediction)
 
 # Use the trained random forest model to predict the heart disease risk value based on the user's input values on the Shiny application
 heartDiseastRisk<-function(age, gender, blood, chol, hr) {

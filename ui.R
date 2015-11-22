@@ -42,6 +42,7 @@ shinyUI(
                 
                 mainPanel(
                         h3('Result of Prediction'),
+                       
                         h4('You entered Age'),
                         verbatimTextOutput('inputValue1'),
                         h4('You entered Gender'),
@@ -52,8 +53,10 @@ shinyUI(
                         verbatimTextOutput('inputValue4'),
                         h4('You entered Heart Rate'),
                         verbatimTextOutput('inputValue5'),
-                        h4('Your Risk Factor of Heart Diseast Is'),
+                        h4('Your Risk Factor of Heart Disease Is'),
                         verbatimTextOutput("Prediction"),
+                        helpText('0 indicates high risk, 1 indicates low risk.'),
+                        h4('Detail Display'),
                         verbatimTextOutput("Details1"),
                         verbatimTextOutput("Details2"),
                         verbatimTextOutput("Details3")
